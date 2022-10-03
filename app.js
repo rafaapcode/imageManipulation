@@ -1,6 +1,6 @@
 import express from 'express';
 import { join } from 'node:path';
-import loginPageRoute from './src/routes/loginPage';
+import homePageRoute from './src/routes/homePage.js';
 
 class App {
   constructor() {
@@ -17,7 +17,7 @@ class App {
   }
 
   routes() {
-    this.app.use('/', loginPageRoute);
+    this.app.use('/', homePageRoute);
   }
 
   views() {

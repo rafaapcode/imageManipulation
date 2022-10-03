@@ -17,5 +17,7 @@ module.exports = {
     'import/first': 'off',
     'no-useless-escape': 'off',
     'no-useless-return': 'off',
+    'object-curly-newline': 'off',
+    'dot-notation': 'off',
   },
 };
