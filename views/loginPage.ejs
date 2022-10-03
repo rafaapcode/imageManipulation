@@ -1,5 +1,35 @@
 <%- include('./includes/head.ejs') %>
 
+<div class="text-center container-fluid d-flex justify-content-center">
 
+  <h3 style="position: absolute; right: 58%; top: 5%;">Login</h3>
+  <form style="margin-top: 10%;" action="/login" method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+  <h3 style="position: absolute; left: 56%; top: 5%;">Sign-Up</h3>
+  <form style="margin-top: 10%;" class="ms-5" action="/signup" method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input name="email" type="email" class="form-control w-100" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign-Up</button>
+  </form>
+
+</div>
+
+<%- include('./includes/messages.ejs') %>
 
 <%- include('./includes/footer.ejs') %>

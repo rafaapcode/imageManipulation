@@ -1,3 +1,5 @@
 export function loginPage(req, res) {
-  res.send('OLÀ sou A Login');
+  res.render('loginPage');
 }
+
+export function login() { }

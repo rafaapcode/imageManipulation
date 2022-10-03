@@ -1,9 +1,6 @@
 import express from 'express';
 import { join } from 'node:path';
 import loginPageRoute from './src/routes/loginPage';
-import flash from 'connect-flash';
-import session from 'express-session';
-import sessioConfig from './src/config/sessionConfig.js';
 
 class App {
   constructor() {
@@ -16,8 +13,6 @@ class App {
   middleware() {
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());
-    this.app.use(flash());
-    this.app.use(session(sessioConfig));
     this.app.set('port', 5000);
   }
 
