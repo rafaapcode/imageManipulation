@@ -1,0 +1,18 @@
+<%- include('./includes/head.ejs') %>
+
+  <form class="container p-4 shadow text-center d-flex align-items-center flex-column mt-3 rounded-5"
+    action="/convertphotos" method="post" enctype="multipart/form-data">
+
+    <h3>Frame</h3>
+    <input class="form-control w-50 mb-5" name="frame" type="file">
+    <h3>Photo</h3>
+    <input class="form-control w-50 mb-5" name="photo" type="file" multiple>
+    <h4>Width of frame</h4>
+    <input class="form-control w-25 mb-5 text-center" name="w" type="number">
+    <h4>Height of frame</h4>
+    <input class="form-control w-25 mb-5 text-center" name="h" type="number">
+
+    <button type="submit" class="btn btn-success w-25">Convert</button>
+  </form>
+
+<%- include('./includes/footer.ejs') %>
