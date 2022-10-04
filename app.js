@@ -1,6 +1,7 @@
 import express from 'express';
 import { join } from 'node:path';
 import homePageRoute from './src/routes/homePage.js';
+import sendEmailRoute from './src/routes/sendEmaiRoute.js';
 
 class App {
   constructor() {
@@ -18,6 +19,7 @@ class App {
 
   routes() {
     this.app.use('/', homePageRoute);
+    this.app.use('/email', sendEmailRoute);
   }
 
   views() {
