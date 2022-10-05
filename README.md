@@ -39,7 +39,7 @@
   1. Entre em **GERENCIAR SUA CONTA DO GOOGLE**
   2. Entre na aba de seguranaça
   3. Ache o bloco **COMO FAZER LOGIN NO GOOGLE** e clique em Senhas de App
-  4. Na escolha do APP selecione outro e colo o nome NODEMAILER
+  4. Na escolha do APP selecione outro e coloque o nome NODEMAILER
   5. Clique em gerar e pegue essa senha e a coloque no campo PASS da configuração acima.
 
 - Agora é só iniciar a aplicação, usando :
