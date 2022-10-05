@@ -24,6 +24,11 @@
     git clone https://github.com/rafaapcode/imageManipulation.git
   ~~~
 
+- Faça o download das dependências :
+  ~~~bash
+    npm install
+  ~~~
+
 - Antes de iniciar a aplicação, você precisa criar o arquivo **.env** e configurar o email que será responsável por enviar as fotos, este email deve ser do GMAIL, porém você pode enviar as fotos para qualquer tipo email :
   - Copie e cole as seguintes configurações :
 
