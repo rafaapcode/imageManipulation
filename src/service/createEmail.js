@@ -1,10 +1,9 @@
 require('dotenv').config();
 
 const nodemailer = require('nodemailer');
+const { resolve } = require('node:path');
 const emailConfig = require('../config/emailConfig.js');
 const { create } = require('./createPathToImg.js');
-const { resolve } = require('node:path');
-
 
 exports.createEmail = async (toemail, subject) => {
   const transport = nodemailer.createTransport(emailConfig);
@@ -19,7 +18,7 @@ exports.createEmail = async (toemail, subject) => {
     to: [toemail],
 
     attachments: await create(resolve(__dirname, '..', 'output')),
-  }
+  };
 
   await transport.sendMail(message);
-}
+};

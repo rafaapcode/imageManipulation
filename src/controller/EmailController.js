@@ -1,11 +1,8 @@
+const { resolve } = require('node:path');
 const { createEmail } = require('../service/createEmail.js');
 const deleteFiles = require('../service/deleteFiles.js');
-const { resolve } = require('node:path');
 
-exports.emailPage = (req, res) => {
-  res.render('sendemail');
-  return;
-}
+exports.emailPage = (req, res) => res.render('sendemail');
 
 exports.sendEmail = async (req, res) => {
   try {
@@ -16,7 +13,6 @@ exports.sendEmail = async (req, res) => {
 
     return res.redirect('/');
   } catch (err) {
-    res.redirect('/');
-    return;
+    return res.redirect('/');
   }
-}
+};

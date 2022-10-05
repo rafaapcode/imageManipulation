@@ -1,6 +1,5 @@
 import Router from 'express';
-import { homePage, convertImg } from '../controller/HomeCOntroller';
-
+import { homePage, convertImg } from '../controller/HomeController.js';
 
 const homeRoute = new Router();
 
