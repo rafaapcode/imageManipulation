@@ -9,9 +9,9 @@ exports.emailPage = (req, res) => {
 
 exports.sendEmail = async (req, res) => {
   try {
-    const { destinatario } = req.body;
+    const { receiver, subject } = req.body;
 
-    await createEmail(destinatario);
+    await createEmail(receiver, subject);
     deleteFiles(resolve(__dirname, '..', 'output'));
 
     return res.redirect('/');

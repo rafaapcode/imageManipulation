@@ -1,18 +1,20 @@
+require('dotenv').config();
+
 const nodemailer = require('nodemailer');
 const emailConfig = require('../config/emailConfig.js');
 const { create } = require('./createPathToImg.js');
 const { resolve } = require('node:path');
 
 
-exports.createEmail = async (toemail) => {
+exports.createEmail = async (toemail, subject) => {
   const transport = nodemailer.createTransport(emailConfig);
 
   const message = {
-    text: 'Fotos Do Projeto',
+    title: 'Photos',
 
-    subject: 'As fotos feitas',
+    subject,
 
-    from: 'faelcrypt@gmail.com',
+    from: process.env.USER,
 
     to: [toemail],
 
