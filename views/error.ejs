@@ -1,10 +1,19 @@
 <%- include('./includes/head.ejs') %>
 
+  <div class="container d-flex justify-content-center rounded-2 shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-muted">
+      <div class="container-fluid">
+        <a class="navbar-brand display-6" href="/">Home</a>
+      </div>
+    </nav>
+  </div>
 
-  <h1 class="text-black" >ERROR 400</h1>
-  <h3 class="text-black">
-    <%= error %>
-  </h3>
 
+  <div style="height: 100vh;" class="text-center mt-5 container-fluid d-flex flex-column">
+    <h1 class="text-black mb-5 display-1">ERROR 400</h1>
+    <h3 class="text-black display-4">
+      <%= error %>
+    </h3>
+  </div>
 
-<%- include('./includes/footer.ejs') %>
+  <%- include('./includes/footer.ejs') %>

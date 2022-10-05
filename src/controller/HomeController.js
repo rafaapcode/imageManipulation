@@ -24,24 +24,29 @@ exports.convertImg = (req, res) => {
       return;
     }
 
-    const pathOutput = resolve(__dirname, '..');
-    const { path: pathFrame } = req.files['frame'][0];
-    const images = req.files['photo'].map(({ path }) => path);
-    const { w, h } = req.body;
-    images.unshift(pathFrame);
+    try {
+      const pathOutput = resolve(__dirname, '..');
+      const { path: pathFrame } = req.files['frame'][0];
+      const images = req.files['photo'].map(({ path }) => path);
+      const { w, h } = req.body;
+      images.unshift(pathFrame);
 
-    const configFrame = {
-      images,
-      res,
-      w: Number(w),
-      h: Number(h),
-      pathOutput,
+      const configFrame = {
+        images,
+        res,
+        w: Number(w),
+        h: Number(h),
+        pathOutput,
+      }
+
+      await addFrameToImg(configFrame);
+      deleteFiles(resolve(__dirname, '..', 'uploads'));
+
+      res.redirect('/email');
+      return;
+    } catch (err) {
+      res.redirect('/');
+      return;
     }
-
-    await addFrameToImg(configFrame);
-    deleteFiles(resolve(__dirname, '..', 'uploads'));
-
-    res.redirect('/email');
-    return;
   });
 }

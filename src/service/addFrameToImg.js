@@ -3,8 +3,6 @@ const jimp = require('jimp');
 module.exports = ({ res, images, w, h, pathOutput }) => {
   const jimps = [];
 
-  try {
-
     for (let i = 0; i < images.length; i++) {
       jimps.push(jimp.read(images[i]));
     }
@@ -23,7 +21,4 @@ module.exports = ({ res, images, w, h, pathOutput }) => {
           img.write(`${pathOutput}/output/image${indexImg}.png`);
         });
       });
-  } catch (e) {
-    return res.render('error');
-  }
 };

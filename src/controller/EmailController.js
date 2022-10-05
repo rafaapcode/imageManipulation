@@ -8,10 +8,15 @@ exports.emailPage = (req, res) => {
 }
 
 exports.sendEmail = async (req, res) => {
-  const { destinatario } = req.body;
+  try {
+    const { destinatario } = req.body;
 
-  await createEmail(destinatario);
-  deleteFiles(resolve(__dirname, '..', 'output'));
+    await createEmail(destinatario);
+    deleteFiles(resolve(__dirname, '..', 'output'));
 
-  return res.redirect('/');
+    return res.redirect('/');
+  } catch (err) {
+    res.redirect('/');
+    return;
+  }
 }
