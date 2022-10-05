@@ -5,7 +5,7 @@ import deleteFiles from '../service/deleteFiles.js';
 import addFrameToImg from '../service/addFrameToImg.js';
 import configFrame from '../config/configFrame.js';
 
-const uploads = multer(multerConfig).fields([{ name: 'frame', maxCount: 1 }, { name: 'photo', maxCount: 20 }]);
+const uploads = multer(multerConfig).fields([{ name: 'frame', maxCount: 1 }, { name: 'photo', maxCount: 50 }]);
 
 export function homePage(req, res) {
   res.render('home');
