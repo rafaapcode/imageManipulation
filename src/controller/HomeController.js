@@ -12,41 +12,46 @@ exports.homePage = (req, res) => {
 
 exports.convertImg = (req, res) => {
 
-  return uploads(req, res, async error => {
-    if (error) {
-      res.render('error', { error: error.code });
-      return;
-    }
 
-    if (!req.body.h || !req.body.w) {
-      res.render('error');
-      deleteFiles(resolve(__dirname, '..', 'uploads'));
-      return;
-    }
-
-    try {
-      const pathOutput = resolve(__dirname, '..');
-      const { path: pathFrame } = req.files['frame'][0];
-      const images = req.files['photo'].map(({ path }) => path);
-      const { w, h } = req.body;
-      images.unshift(pathFrame);
-
-      const configFrame = {
-        images,
-        res,
-        w: Number(w),
-        h: Number(h),
-        pathOutput,
+    return uploads(req, res, async error => {
+      if (error) {
+        res.render('error', { error: error.code });
+        return;
       }
 
-      await addFrameToImg(configFrame);
-      deleteFiles(resolve(__dirname, '..', 'uploads'));
+      if (!req.body.h || !req.body.w) {
+        req.flash('errors', 'The width and height of a frame must be completed !!');
+        deleteFiles(resolve(__dirname, '..', 'uploads'));
+        req.session.save(() => {
+          res.redirect('/');
+          return;
+        })
+        return;
+      }
 
-      res.redirect('/email');
-      return;
-    } catch (err) {
-      res.redirect('/');
-      return;
-    }
-  });
+      try {
+        const pathOutput = resolve(__dirname, '..');
+        const { path: pathFrame } = req.files['frame'][0];
+        const images = req.files['photo'].map(({ path }) => path);
+        const { w, h } = req.body;
+        images.unshift(pathFrame);
+
+        const configFrame = {
+          images,
+          res,
+          w: Number(w),
+          h: Number(h),
+          pathOutput,
+        }
+
+        await addFrameToImg(configFrame);
+        deleteFiles(resolve(__dirname, '..', 'uploads'));
+
+        res.redirect('/email');
+        return;
+      } catch (err) {
+        res.redirect('/');
+        return;
+      }
+    });
 }
