@@ -52,4 +52,4 @@
 
 OBS: O JIMP que é usado para fazer a adição da moldura nas fotos, pode dar o seguinte erro durante o processo : **Error: invalid huffman sequence**
 Caso isso aconteça reinicie a aplicaçãoe e tente novamente.
-Lembrando que o NODEMAILER também tem uma cota de emails que pode ser mandadod por dia.
+Lembrando que o NODEMAILER também tem uma cota de emails que pode ser mandado por dia.
